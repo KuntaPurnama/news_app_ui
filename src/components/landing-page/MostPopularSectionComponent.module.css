@@ -1,0 +1,70 @@
+.container{
+    display: flex;
+    margin-top: 30px;
+}
+
+.sectionText{
+    font-weight: bold;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.popularContainer{
+    width: 75%;
+}
+
+.popularContent{
+    display: flex;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.popularText{
+}
+
+.popularTitle{
+    font-weight: bold;
+    font-family: "Georgia, Times New Roman, Times, serif";
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.popularTitle:hover{
+    text-decoration: underline;
+}
+
+.popularDescription{
+    font-size: 15px;
+    font-family: Noto Sans, sans-serif;
+    font-family: "Georgia, Times New Roman, Times, serif";
+}
+
+.reviewContainer{
+    width: 25%;
+    margin-left: 10px;
+}
+
+.verticalBreakline{
+    background-color: rgba(0,0,0,1);
+    width: 1px;
+}
+
+.reviewContent{
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+.reviewTitle{
+    font-weight: bold;
+    font-family: "Georgia, Times New Roman, Times, serif";
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.reviewTitle:hover{
+    text-decoration: underline;
+}

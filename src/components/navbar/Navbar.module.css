@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  position: center;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 50px;
+}
+
+.navbarMenu {
+  margin: 20px;
+}
+
+.navbarButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: ".SF NS Mono";
+  margin-left: 20px;
+  margin-right: 20px;
+}

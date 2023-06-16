@@ -1,0 +1,67 @@
+.container{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: center;
+}
+
+.leftContent{
+    width: 25%;
+    display: flex;
+}
+
+.sideNewsContent{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.middleContent{
+    width: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: flex;
+    padding: 10px;
+}
+
+.middleDate{
+    color: rgba(0,0,0,0.5);
+}
+
+.middleTitle{
+    font-weight: bold;
+    font-family: "Georgia, Times New Roman, Times, serif";
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+.middleTitle:hover{
+    text-decoration: underline;
+}
+
+.middleDescription{
+    font-size: 20px;
+    font-family: Noto Sans, sans-serif;
+    font-family: "Georgia, Times New Roman, Times, serif";
+}
+
+.rightContent{
+    width: 25%;
+    display: flex;
+}
+
+.sideDate{
+    color: rgba(0,0,0,0.5);
+}
+
+.sideTitle{
+    font-weight: bold;
+    font-family: "Georgia, serif";
+    font-size: 20px;
+}
+
+.verticalBreakline{
+    width: 1px;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
