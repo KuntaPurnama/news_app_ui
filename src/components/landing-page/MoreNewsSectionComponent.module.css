@@ -1,0 +1,50 @@
+.sectionText{
+    font-weight: bold;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.title{
+    font-weight: bold;
+    font-family: "Tiro Devanagari Hindi";
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.title:hover{
+    text-decoration: underline;
+}
+
+.gridImage{
+    width:100%;
+    height:200px;
+}
+
+@media (max-width: 780px) {
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .title{
+        font-size: 13px;
+    }
+
+    .sectionText{
+        font-size: 15px;
+    }
+
+    .gridImage{
+        width:100%;
+        height:auto;
+    }
+}

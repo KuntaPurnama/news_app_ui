@@ -1,0 +1,113 @@
+.highlightedContainer{
+    display: flex;
+}
+
+.highlightedNews{
+    margin-right: 10px;
+}
+
+.sectionText{
+    font-weight: bold;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.highlightedTitle{
+    font-weight: bold;
+    font-family: "Tiro Devanagari Hindi";
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+.highlightedTitle:hover{
+    text-decoration: underline;
+}
+
+.highlightedDescription{
+    font-family: "Georgia, Times New Roman, Times, serif";
+    font-size: 20px;
+}
+
+.recentContainer{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.recentNews{
+    width: 25%;
+}
+
+.recentTitle{
+    font-weight: bold;
+    font-family: "Tiro Devanagari Hindi";
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.recentTitle:hover{
+    text-decoration: underline;
+}
+
+.verticalBreakline{
+    background-color: rgba(0,0,0,0.3);
+    width: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.highlightedImage{
+    width: 60%;
+}
+
+.image{
+    width:600px;
+    height:300px;
+}
+
+.recentImage{
+    width:100%;
+    height:200px;
+}
+
+@media (max-width: 780px) {
+    .highlightedContainer{
+        display: block;
+    }
+
+    .highlightedImage{
+        width: 100%;
+    }
+
+    .highlightedNews{
+        margin-right: 0;
+    }
+
+    .image{
+        width: 100%;
+        height: auto;
+    }
+
+    .highlightedTitle{
+        font-size: 20px;
+    }
+
+    .recentContainer{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .recentNews{
+        width: 100%;
+    }
+
+    .recentImage{
+        width:100%;
+        height:auto;
+    }
+}

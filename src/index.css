@@ -18,3 +18,12 @@ code {
   padding-right: 150px;
   padding-top: 50px;
 }
+
+@media (max-width: 480px) {
+  .page {
+    position: center;
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

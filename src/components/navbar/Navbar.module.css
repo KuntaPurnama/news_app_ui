@@ -6,7 +6,7 @@
   position: center;
   padding-left: 150px;
   padding-right: 150px;
-  padding-top: 50px;
+  margin-top: 30px;
 }
 
 .navbarMenu {
@@ -21,4 +21,17 @@
   font-family: ".SF NS Mono";
   margin-left: 20px;
   margin-right: 20px;
+}
+
+@media (max-width: 480px){
+  .navbar {
+    display: block;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    position: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 30px;
+  }
 }

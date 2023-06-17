@@ -1,0 +1,120 @@
+.thisWeekContainer{
+    margin-top: 50px;
+}
+
+
+.sectionText{
+    font-weight: bold;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.thisWeekContent{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.thisWeekHighlighted{
+    width: 50%;
+}
+
+.restThisWeekNews{
+    display: flex;
+    width: 100%;
+}
+
+.restThisWeekNewsContainer{
+    width: 50%;
+}
+
+.thisWeekNewsTitle{
+    font-weight: bold;
+    font-family: "Tiro Devanagari Hindi";;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+.thisWeekNewsTitle:hover{
+    text-decoration: underline;
+}
+
+.thisWeekNewsDescription{
+    font-size: 20px;
+    font-family: "Georgia, Times New Roman, Times, serif";
+}
+
+.restThisWeekNewsDescription{
+    font-size: 15px;
+    font-family: "Georgia, Times New Roman, Times, serif";
+}
+
+.verticalBreakline{
+    background-color: rgba(0,0,0,0.3);
+    width: 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.restThisWeekNewsTitle{
+    font-weight: bold;
+    font-family: "Tiro Devanagari Hindi";
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.restThisWeekNewsTitle:hover{
+    text-decoration: underline;
+}
+
+.highlightedImage{
+    width:100%;
+    height:300px;
+}
+
+.recentImage{
+    width:250px;
+    height:200px;
+    marginRight:20px;
+}
+
+@media (max-width: 780px) {
+    .thisWeekContent{
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .thisWeekHighlighted{
+        width: 100%;
+    }
+
+    .highlightedImage{
+        width:100%;
+        height:auto;
+    }
+
+    .thisWeekNewsTitle{
+        font-size: 20px;
+    }
+
+    .restThisWeekNewsContainer{
+        width: 100%;
+    }
+
+    .restThisWeekNews{
+        display: block;
+    }
+
+    .recentImage{
+        width:100%;
+        height:auto;
+        marginRight:0px;
+    }
+
+    .restThisWeekNewsTitle{
+        font-size: 20px;
+    }
+}
+

@@ -1,0 +1,73 @@
+.container{
+    position: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-top: 50px;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftComponent{
+    font-size: 40px;
+    align-self: flex-start;
+    font-weight: bold;
+    font-family: "Tiro Devanagari Hindi";
+}
+
+.rightComponent{
+    align-self: flex-end;
+}
+
+.searchInput{
+    width: 300px;
+    height: 30px;
+}
+
+.searchButton{
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 10px;
+    width:120px;
+    justify-content: center;
+}
+
+@media (max-width: 460px){
+    .content{
+        display: block;
+    }
+    .container{
+        padding-top: 50px;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .leftComponent{
+        font-size: 40px;
+        align-self: flex-start;
+        font-weight: bold;
+        font-family: "Tiro Devanagari Hindi";
+    }
+
+    .rightComponent{
+        align-self: flex-end;
+    }
+
+    .searchInput{
+        width: 300px;
+        height: 30px;
+    }
+
+    .searchButton{
+        color: white;
+        background-color: black;
+        border: none;
+        padding: 10px;
+        width:120px;
+        justify-content: center;
+    }
+}

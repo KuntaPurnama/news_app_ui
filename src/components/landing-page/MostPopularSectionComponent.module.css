@@ -17,7 +17,6 @@
 
 .popularContent{
     display: flex;
-    height: 150px;
     margin-bottom: 20px;
 }
 
@@ -26,7 +25,7 @@
 
 .popularTitle{
     font-weight: bold;
-    font-family: "Georgia, Times New Roman, Times, serif";
+    font-family: "Tiro Devanagari Hindi";
     font-size: 20px;
     text-decoration: none;
     color: black;
@@ -38,8 +37,7 @@
 
 .popularDescription{
     font-size: 15px;
-    font-family: Noto Sans, sans-serif;
-    font-family: "Georgia, Times New Roman, Times, serif";
+    font-family: "Tiro Devanagari Hindi";
 }
 
 .reviewContainer{
@@ -67,4 +65,51 @@
 
 .reviewTitle:hover{
     text-decoration: underline;
+}
+
+.popularImage{
+    width:250px;
+    height:150px;
+}
+
+.popularImageContainer{
+    width: 250px;
+    margin-right: 20px;
+}
+
+@media (max-width: 480px){
+    .container{
+        display: block;
+        margin-top: 30px;
+    }
+
+    .reviewContainer{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .popularImageContainer{
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .popularContent{
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .popularContainer{
+        width: 100%;
+    }
+
+    .popularImage{
+        width:100%;
+        height:auto;
+    }
+
+    .reviewContent{
+        margin-bottom: 10px;
+        padding: 0;
+    }
 }

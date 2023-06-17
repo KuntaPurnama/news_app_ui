@@ -1,0 +1,83 @@
+.container{
+    margin-top: 30px;
+    background-color: rgba(0,0,0,0.05);
+}
+
+.content{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 150px;
+    margin-right: 150px;
+    display: flex;
+}
+
+.webInfo{
+    width: 25%;
+}
+
+.webName{
+    font-weight: bold;
+    font-family: "Tiro Devanagari Hindi";
+    font-size: 25px;
+}
+
+.sectionTitle{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.socialMediaLink{
+    text-decoration: none;
+    color: black;
+}
+
+.socialMediaLink:hover{
+    text-decoration: underline;
+}
+
+.socialMedia{
+    width: 25%;
+}
+
+.topicInfo{
+    width: 50%;
+}
+
+.gridTopic{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.gridTopic a{
+    text-decoration: none;
+    color: black;
+}
+
+.gridTopic a:hover{
+    text-decoration: underline;
+}
+
+@media (max-width: 780px) {
+    .content{
+        margin-left: 0;
+        margin-right: 0;
+        display: block;
+        padding: 20px;
+    }
+
+    .webInfo{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .topicInfo{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .socialMedia{
+        width: 100%;
+    }
+
+}

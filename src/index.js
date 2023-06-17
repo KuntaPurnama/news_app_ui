@@ -7,12 +7,15 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import { createBrowserHistory } from "history";
 import TestComponent from "./components/TestComponent";
+import Header from "./components/header/Header";
+import FooterCompoent from "./components/footer/FooterComponent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const customHistory = createBrowserHistory();
 
 root.render(
     <BrowserRouter history={customHistory}>
+        <Header/>
         <Navbar/>
         <div className="page">
             <Switch>
@@ -20,6 +23,7 @@ root.render(
                 <Route path="/test" component={TestComponent} />
             </Switch>
         </div>
+        <FooterCompoent/>
     </BrowserRouter>
 );
 
