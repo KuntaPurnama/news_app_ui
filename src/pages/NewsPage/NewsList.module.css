@@ -1,0 +1,126 @@
+.container{
+    display: flex;
+    width: 100%;
+}
+
+.topic{
+    font-weight: bold;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 25px;
+}
+
+.imageContainer{
+    margin-right: 20px;
+}
+
+.image{
+    width: 250px;
+    height: 150px;
+}
+
+.title{
+    font-weight: bold;
+    font-family: "Tiro Devanagari Hindi";
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.title:hover{
+    text-decoration: underline;
+}
+
+.news{
+    width: 100%;
+}
+
+.newsContent{
+    display: flex;
+}
+
+.verticalBreakline{
+    background-color: rgba(0,0,0,0.3);
+    width: 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.filter{
+    width: 30%;
+}
+
+.filterHeader{
+    background-color: black;
+    color: white;
+}
+
+.filterHeader p{
+    padding: 10px;
+}
+
+.filterTimeRange{
+    margin-bottom: 20px;
+}
+
+.timeRangeOption{
+    cursor: pointer;
+}
+
+.timeRangeOption:hover{
+    text-decoration: underline;
+}
+
+.dropdown{
+    padding-right: 10px;
+    height: 35px;
+    width: 100%;
+}
+
+.updateButton {
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.updateButton:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.resetButton {
+    border: 2px solid black;
+    padding: 10px;
+    width: 100%;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.resetButton:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.pageButtonContainer{
+}
+
+.pageButton{
+    border: 2px solid black;
+    background-color: white;
+    margin:2px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.pageButton:hover{
+    background-color: rgba(0,0,0,0.5);
+}
+

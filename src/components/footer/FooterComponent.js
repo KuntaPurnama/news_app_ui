@@ -20,8 +20,6 @@ const FooterCompoent = () => {
         setTopics(topicData);
     }
 
-    console.log('topic', topics);
-
     if(isLoading){
         return <></>
     }
@@ -39,7 +37,7 @@ const FooterCompoent = () => {
                     <p className={styles.sectionTitle}>TOPICS</p>
                     <hr style={{width:'90%', marginLeft:'0'}}/>
                     <div className={styles.gridTopic}>
-                        {topics.map(topic => (<a href={"/"}>{topic}</a>))}
+                        {topics.map(topic => (<a href={`/list/news/${topic}`}>{topic}</a>))}
                     </div>
                 </div>
                 <div className={styles.socialMedia}>

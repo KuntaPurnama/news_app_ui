@@ -1,0 +1,54 @@
+.headLineText{
+    font-weight: bold;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 25px;
+}
+
+.firstSection{
+    display: flex;
+}
+
+.newsContent{
+    display: flex;
+}
+
+.imageContainer{
+    margin-right: 20px;
+}
+
+.title{
+    font-weight: bold;
+    font-family: "Tiro Devanagari Hindi";
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.image{
+    width: 250px;
+    height: 150px;
+}
+
+.verticalBreakline{
+    background-color: rgba(0,0,0,0.3);
+    width: 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.rightContent{
+    width: 50%;
+}
+
+.title:hover{
+    text-decoration: underline;
+}
+
+.sectionHeader{
+    background-color: black;
+    color: white;
+}
+
+.sectionHeader p {
+    padding: 10px;
+}

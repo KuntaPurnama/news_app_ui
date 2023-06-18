@@ -5,3 +5,5 @@ export const NEWS_SUMMARY = (index, size) => BASE_URL + "/news-summary/" + index
 export const THIS_WEEK_NEWS = (size) => BASE_URL + "/this-week-news/" + size;
 export const GET_MORE_NEWS = (size) => BASE_URL + "/get-more-news/" + size;
 export const GET_ALL_TOPICS = BASE_URL + "/get-all-topics";
+export const GET_NEWS_WITH_TOPIC =  BASE_URL + "/get-news";
+export const GET_SEARCHED_NEWS = BASE_URL + "/search"
