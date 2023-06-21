@@ -1,10 +1,10 @@
 import * as React from "react";
 import styles from "./SeeMoreButtonComponent.module.css"
 
-const SeeMoreButtonComponent = () => {
+const SeeMoreButtonComponent = (props) => {
     return (
         <div style={{textAlign:'center'}}>
-            <button className={styles.seeMore}> See More</button>
+            <a href={props.destination} className={styles.seeMore}> See More</a>
         </div>
     )
 }

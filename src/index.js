@@ -9,8 +9,15 @@ import { createBrowserHistory } from "history";
 import TestComponent from "./components/TestComponent";
 import Header from "./components/header/Header";
 import FooterCompoent from "./components/footer/FooterComponent";
-import NewsList from "./pages/NewsPage/NewsList";
+import NewsListPage from "./pages/NewsPage/NewsListPage";
 import SearchedPage from "./pages/SearchPage/SearchedPage";
+import LoginPage from "./pages/AuthPage/LoginPage";
+import RegisterPage from "./pages/AuthPage/RegisterPage";
+import ForgotPasswordPage from "./pages/AuthPage/ForgotPasswordPage";
+import ActivateAccountPage from "./pages/AuthPage/ActivateAccountPage";
+import ProfilePage from "./pages/Profile/ProfilePage";
+import ResetForgotPassword from "./pages/AuthPage/ResetForgotPassword";
+import ResetPassword from "./pages/AuthPage/ResetPassword";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const customHistory = createBrowserHistory();
@@ -22,8 +29,15 @@ root.render(
         <div className="page">
             <Switch>
                 <Route exact path='/' component={LandingPage} />
-                <Route exact path='/list/:index/:topic' component={NewsList} />
+                <Route exact path='/list/:index/:topic' component={NewsListPage} />
                 <Route exact path='/search' component={SearchedPage} key={'search'}/>
+                <Route exact path='/login' component={LoginPage}/>
+                <Route exact path='/register' component={RegisterPage}/>
+                <Route exact path='/forgot-password' component={ForgotPasswordPage}/>
+                <Route exact path='/activate-account/:token' component={ActivateAccountPage}/>
+                <Route exact path='/profile' component={ProfilePage}/>
+                <Route exact path='/reset-forgot-password/:token' component={ResetForgotPassword}/>
+                <Route exact path='/reset-password/:email' component={ResetPassword}/>
             </Switch>
         </div>
         <FooterCompoent/>

@@ -2,7 +2,6 @@
     position: center;
     margin-left: 150px;
     margin-right: 150px;
-    padding-top: 50px;
 }
 
 .content{
@@ -11,16 +10,33 @@
 }
 
 .leftComponent a{
-    font-size: 40px;
     align-self: flex-start;
-    color: black;
     text-decoration: none;
     font-weight: bold;
     font-family: "Tiro Devanagari Hindi";
 }
 
+.tagLine{
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+}
+
 .rightComponent{
     align-self: flex-end;
+}
+
+.account{
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding:5px;
+    text-decoration: none;
+}
+
+.account:hover{
+    color: grey;
 }
 
 .searchInput{
@@ -42,7 +58,17 @@
     background-color: rgba(0,0,0,0.6);
 }
 
-@media (max-width: 460px){
+.username{
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+}
+
+.username:hover{
+    text-decoration: underline;
+}
+
+@media (max-width: 780px){
     .content{
         display: block;
     }

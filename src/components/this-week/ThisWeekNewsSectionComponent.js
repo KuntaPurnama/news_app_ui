@@ -3,18 +3,19 @@ import * as newsApi from "../../apis/news";
 import styles from "./ThisWeekNewsSectionComponent.module.css"
 import moment from "moment";
 import SeeMoreButtonComponent from "../attribute/SeeMoreButtonComponent";
+import LoadingComponent from "../loading/LoadingComponent";
 
-const ThisWeekNewsSectionComponent = () =>{
+const ThisWeekNewsSectionComponent = (props) =>{
     const [isLoading, setIsLoading] = React.useState(true);
     const [thisWeekNews, setThisWeekNews] = React.useState({});
-    const isMobile = window.innerWidth <= 800;
+    const {isMobile} = props;
 
     React.useEffect(()=>{
         (async () => {
             await loadData();
             setIsLoading(false);
         })();
-    },[isLoading])
+    },[])
 
     const loadData = async () =>{
         const thisWeekNewsResponse = await newsApi.getThisWeekNews(4);
@@ -23,7 +24,7 @@ const ThisWeekNewsSectionComponent = () =>{
     }
 
     if(isLoading){
-        return <></>
+        return <LoadingComponent/>
     }
 
     const restData = thisWeekNews.slice(1, thisWeekNews.length);
@@ -40,7 +41,7 @@ const ThisWeekNewsSectionComponent = () =>{
                     <div>
                         <img src={news.imageUrl} className={styles.recentImage}/>
                     </div>
-                    <div style={{marginTop:'0'}}>
+                    <div style={isMobile ? {marginLeft: '0px', marginTop:'0'} : {marginLeft:'20px', marginTop:'0'}}>
                         <p style={{color: 'rgba(0,0,0,0.6)'}}>{news.source ? news.source: 'News'} | {generatePublishedDate(news.publishedDate)}</p>
                         <a href={news.newsUrl} className={styles.restThisWeekNewsTitle}>{news.title}</a>
                         <p className={styles.restThisWeekNewsDescription}>{news.description}</p>
@@ -75,8 +76,6 @@ const ThisWeekNewsSectionComponent = () =>{
                     {restData.map((news, index) => (buildRestThisWeekNews(news,index)))}
                 </div>
             </div>
-
-            <SeeMoreButtonComponent/>
         </div>
     )
 }

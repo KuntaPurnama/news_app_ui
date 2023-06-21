@@ -11,6 +11,10 @@
     padding:10px;
 }
 
+.content{
+    width: 50%;
+}
+
 .input{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -48,12 +52,11 @@
 }
 
 .link{
-    text-decoration: none;
     color: black;
 }
 
 .link:hover{
-    text-decoration: underline;
+    color: rgba(0,0,0,0.7);
 }
 
 .linkContainer{
@@ -63,4 +66,20 @@
 .errorMessage{
     background-color: red;
     color: white;
+}
+
+.successMessage{
+    background-color: green;
+    color: white;
+}
+
+.activateAccount{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+@media (max-width: 780px){
+    .content{
+        width: 80%;
+    }
 }

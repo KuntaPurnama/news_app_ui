@@ -3,6 +3,7 @@ import * as newsApi from "../../apis/news";
 import moment from "moment";
 import styles from "./MoreNewsSectionComponent.module.css"
 import SeeMoreButtonComponent from "../attribute/SeeMoreButtonComponent";
+import LoadingComponent from "../loading/LoadingComponent";
 
 const MoreNewsSectionComponent = () => {
     const [isLoading, setIsLoading] = React.useState(true);
@@ -13,7 +14,7 @@ const MoreNewsSectionComponent = () => {
             await loadData();
             setIsLoading(false);
         })();
-    }, [isLoading]);
+    }, []);
 
     const loadData = async () => {
         const newsResponse = await newsApi.getMoreNews(20);
@@ -22,7 +23,7 @@ const MoreNewsSectionComponent = () => {
     };
 
     if(isLoading){
-        return <></>
+        return <LoadingComponent/>
     }
 
     const generatePublishedDate = (publishedDate) => {
@@ -55,7 +56,7 @@ const MoreNewsSectionComponent = () => {
             <div className={styles.grid}>
                 {news.map((news) => (buildMoreNewsView(news)))}
             </div>
-            <SeeMoreButtonComponent/>
+            <SeeMoreButtonComponent destination={'/list/news/all'}/>
         </div>
     )
 }

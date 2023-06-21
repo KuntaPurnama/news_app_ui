@@ -2,6 +2,8 @@ import styles from "./FooterComponent.module.css"
 import * as React from "react";
 import * as newsApi from "../../apis/news";
 import {FaFacebook, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube} from "react-icons/fa";
+import {Circles} from "react-loader-spinner";
+import LoadingComponent from "../loading/LoadingComponent";
 
 const FooterCompoent = () => {
     const [isLoading, setIsLoading] = React.useState(true);
@@ -12,7 +14,7 @@ const FooterCompoent = () => {
             await loadData();
             setIsLoading(false);
         })();
-    },[isLoading])
+    },[])
 
     const loadData = async () =>{
         const topicResponse = await newsApi.getAllTopics();
@@ -21,7 +23,7 @@ const FooterCompoent = () => {
     }
 
     if(isLoading){
-        return <></>
+        return <LoadingComponent/>
     }
 
     return (

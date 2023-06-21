@@ -1,10 +1,11 @@
 import * as React from "react";
 import * as newsApi from "../../apis/news";
 import {useParams} from "react-router-dom";
-import styles from "./NewsList.module.css"
+import styles from "./NewsListPage.module.css"
 import moment from "moment";
+import LoadingComponent from "../../components/loading/LoadingComponent";
 
-const NewsList = () => {
+const NewsListPage = () => {
     const [news, setNews] = React.useState([]);
     const [thisWeek, setThisWeek] = React.useState(0);
     const [thisMonth, setThisMonth] = React.useState(0);
@@ -61,8 +62,6 @@ const NewsList = () => {
             'source' : sourceParam,
             'category' : topic !== 'all'? topic : null
         }
-
-        console.log("body ", body)
         await getNews(body);
 
         body = {
@@ -189,7 +188,7 @@ const NewsList = () => {
     }
 
     if(isLoading){
-        return <></>
+        return <LoadingComponent/>
     }
 
     const generateFilterSection = () => {
@@ -238,7 +237,6 @@ const NewsList = () => {
             </div>
         )
     }
-
     return (
         <div>
             <p className={styles.topic}>{topic === 'all' ? convertToConventionalFormat(index) : topic }</p>
@@ -279,4 +277,4 @@ const NewsList = () => {
     )
 }
 
-export default NewsList;
+export default NewsListPage;

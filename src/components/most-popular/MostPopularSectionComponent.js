@@ -4,23 +4,27 @@ import * as newsApi from "../../apis/news";
 import styles from "./MostPopularSectionComponent.module.css"
 import moment from "moment";
 import SeeMoreButtonComponent from "../attribute/SeeMoreButtonComponent";
+import {Circles} from "react-loader-spinner";
+import LoadingComponent from "../loading/LoadingComponent";
 
-const MostPopularSectionComponent = () =>{
+const MostPopularSectionComponent = (props) =>{
     const [isLoading, setIsLoading] = React.useState(true);
     const [mostPopularNews, setMostPopularNews] = React.useState({});
     const [reviewNews, setReviewNews] = React.useState({});
-    const isMobile = window.innerWidth <= 800;
+    const {isMobile} = props;
 
     useEffect(()=>{
         (async () => {
             await loadData();
             setIsLoading(false);
         })();
-    },[isLoading])
+    },[])
+
 
     const loadData = async () =>{
         const headlineRes = await newsApi.getNewsSummary('most_popular_news', 9);
         const reviewNewsRes = await newsApi.getNewsSummary('review_article_news', 5);
+        console.log("review", reviewNewsRes);
         const headlineData = headlineRes.data.data;
         const reviewData = reviewNewsRes.data.data;
         setMostPopularNews(headlineData)
@@ -65,7 +69,7 @@ const MostPopularSectionComponent = () =>{
     }
 
     if(isLoading){
-        return <></>
+        return <LoadingComponent/>
     }
 
 
@@ -78,7 +82,7 @@ const MostPopularSectionComponent = () =>{
                         <hr style={{width:'95%', left:'0', textAlign:'left', justifyContent:'left', marginLeft:'0', border:'1px solid rgba(0,0,0,0.8)'}}/>
                     </div>
                     {mostPopularNews.map((news,index) => generatePopularNewsSection(news, index))}
-                    <SeeMoreButtonComponent/>
+                    <SeeMoreButtonComponent destination={'/list/most_popular_news/all'}/>
                 </div>
                 <div className={styles.reviewContainer}>
                     <div className={styles.sectionText}>
@@ -91,7 +95,7 @@ const MostPopularSectionComponent = () =>{
                             {reviewNews.map((review, index) => generateReviewNewsSection(review, index))}
                         </div>
                     </div>
-                    <SeeMoreButtonComponent/>
+                    <SeeMoreButtonComponent destination={'/list/most_popular_news/review'}/>
                 </div>
             </div>
         </>

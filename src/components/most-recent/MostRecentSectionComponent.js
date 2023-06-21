@@ -3,18 +3,20 @@ import * as newsApi from "../../apis/news";
 import styles from "./MostRecentSectionComponent.module.css"
 import moment from "moment";
 import SeeMoreButtonComponent from "../attribute/SeeMoreButtonComponent";
+import {Circles} from "react-loader-spinner";
+import LoadingComponent from "../loading/LoadingComponent";
 
-const MostRecentSectionComponent = () => {
+const MostRecentSectionComponent = (props) => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [mostRecentNews, setMostRecentNews] = React.useState({});
-    const isMobile = window.innerWidth <= 800;
+    const {isMobile} = props;
 
     React.useEffect(()=>{
         (async () => {
             await loadData();
             setIsLoading(false);
         })();
-    },[isLoading])
+    },[])
 
     const loadData = async () =>{
         const mostRecentResponse = await newsApi.getNewsSummary('news', 5);
@@ -23,7 +25,7 @@ const MostRecentSectionComponent = () => {
     }
 
     if(isLoading){
-        return <></>
+        return <LoadingComponent/>
     }
 
     const generatePublishedDate = (publishedDate) => {
@@ -85,7 +87,6 @@ const MostRecentSectionComponent = () => {
             <div className={styles.recentContainer}>
                 {restData.map((news, index) => buildRestOfRecentNews(news,index))}
             </div>
-            <SeeMoreButtonComponent/>
         </div>
     )
 }

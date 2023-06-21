@@ -2,19 +2,22 @@ import styles from "./HeadlineNewsSectionComponent.module.css"
 import moment from "moment"
 import * as React from "react";
 import * as newsApi from "../../apis/news";
+import {Circles} from "react-loader-spinner"
+import LoadingComponent from "../loading/LoadingComponent";
 
-const HeadlineNewsSectionComponent = () => {
+const HeadlineNewsSectionComponent = (props) => {
 
     const [isLoading, setIsLoading] = React.useState(true);
     const [headlineNews, setHeadlineNews] = React.useState([]);
-    const isMobile = window.innerWidth <= 800;
+
+    const {isMobile} = props
 
     React.useEffect(() => {
         (async () => {
             await loadData();
             setIsLoading(false);
         })();
-    }, [isLoading]);
+    }, []);
 
     const loadData = async () => {
         const headlineRes = await newsApi.getNewsSummary('top_news', 10);
@@ -28,7 +31,7 @@ const HeadlineNewsSectionComponent = () => {
     }
 
     if(isLoading){
-       return <></> 
+       return <LoadingComponent/>
     }
     
     return (

@@ -52,3 +52,26 @@
 .sectionHeader p {
     padding: 10px;
 }
+
+@media (max-width: 780px){
+    .firstSection{
+        display: block;
+    }
+
+    .image{
+        width: 100%;
+        height: auto;
+    }
+
+    .newsContent{
+        display: block;
+    }
+
+    .imageContainer{
+        margin-right: 0;
+    }
+
+    .rightContent{
+        width: 100%;
+    }
+}

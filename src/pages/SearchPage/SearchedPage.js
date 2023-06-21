@@ -4,6 +4,7 @@ import {useLocation} from "react-router-dom";
 import * as newsApi from "../../apis/news";
 import moment from "moment";
 import MoreNewsSectionComponent from "../../components/more-news/MoreNewsSectionComponent";
+import LoadingComponent from "../../components/loading/LoadingComponent";
 
 const SearchedPage = () => {
     const [isLoading, setIsLoading] = React.useState(false);
@@ -17,7 +18,7 @@ const SearchedPage = () => {
             await loadData();
             setIsLoading(false);
         })();
-    },[isLoading])
+    },[])
 
     const loadData = async() => {
         const body = {
@@ -38,7 +39,7 @@ const SearchedPage = () => {
     }
 
     if(isLoading){
-        return <></>
+        return <LoadingComponent/>
     }
 
     const buildSearchedNews = (news) => {

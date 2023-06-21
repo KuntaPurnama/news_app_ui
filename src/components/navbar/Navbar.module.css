@@ -1,8 +1,4 @@
 .navbar {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
   position: center;
   padding-left: 150px;
   padding-right: 150px;
@@ -11,6 +7,10 @@
 
 .navbarMenu {
   margin: 20px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
 .navbarText {
@@ -30,15 +30,38 @@
   text-decoration: underline;
 }
 
+.topicInfo{
+  background-color: white;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.gridTopic{
+  display: grid;
+  grid-gap: 10px;
+}
+
+.gridTopic a{
+  text-decoration: none;
+  color: black;
+  padding: 20px;
+}
+
+.gridTopic a:hover{
+  text-decoration: underline;
+}
+
 @media (max-width: 480px){
   .navbar {
-    display: block;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
     position: center;
     padding-left: 0px;
     padding-right: 0px;
     margin-top: 30px;
+  }
+
+  .navbarMenu{
+    display: block;
+    text-align: center;
   }
 }

@@ -78,7 +78,7 @@
     cursor:pointer;
 }
 
-@media (max-width: 480px){
+@media (max-width: 780px){
     .container{
         display: block;
     }

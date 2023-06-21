@@ -4,13 +4,11 @@
     color: black;
     background-color: white;
     border: none;
-    border-bottom: 2px solid black;
     padding: 10px;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
 }
 
 .seeMore:hover{
     color: rgba(0,0,0,0.5);
-    border-bottom: 3px solid rgba(0,0,0,0.5);
 }
