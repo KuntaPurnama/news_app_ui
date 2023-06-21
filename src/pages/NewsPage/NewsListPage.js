@@ -13,9 +13,10 @@ const NewsList = () => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [authors, setAuthors] = React.useState([]);
     const [sources, setSources] = React.useState([]);
-    const [sourceParam, setSourceParam] = React.useState(null);
-    const [timeIntervalParam, setTimeIntervalParam] = React.useState(null);
-    const [authorParam, setAuthorParam] = React.useState(null);
+    const [sourceParam, setSourceParam] = React.useState('');
+    const [timeIntervalParam, setTimeIntervalParam] = React.useState('');
+    const [authorParam, setAuthorParam] = React.useState('');
+    const [isMobile, setIsMobile] = React.useState(false);
     const {topic, index} = useParams();
     const itemsPerPage = 10;
     const totalPages = Math.ceil(news.length / itemsPerPage);
@@ -29,11 +30,28 @@ const NewsList = () => {
             await loadData();
             setIsLoading(false);
         })();
-    }, [isLoading]);
+
+        window.addEventListener('resize', checkMobileView)
+
+        return () => {
+            window.removeEventListener('resize', checkMobileView)
+        }
+    }, []);
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
+
+    const checkMobileView = () => {
+        setIsMobile(window.innerWidth <= 800);
+    }
+
+    const getNews = async (body) => {
+        const newsWithTopicResponse = await newsApi.getNewsWithTopic(body);
+        const newsData = newsWithTopicResponse.data.data;
+        setNews(newsData['documents']);
+        setTotal(newsData['total_documents']);
+    }
 
     const loadData = async () => {
         let body = {
@@ -45,10 +63,7 @@ const NewsList = () => {
         }
 
         console.log("body ", body)
-        const newsWithTopicResponse = await newsApi.getNewsWithTopic(body);
-        const newsData = newsWithTopicResponse.data.data;
-        setNews(newsData['documents']);
-        setTotal(newsData['total_documents']);
+        await getNews(body);
 
         body = {
             'index' : index ? index : 'news',
@@ -105,14 +120,31 @@ const NewsList = () => {
     }
 
     const getNewsWithParam = async() =>{
-        setIsLoading(true);
+        const body = {
+            'index' : index ? index : 'news',
+            'publishedDate' : timeIntervalParam,
+            'author' : authorParam,
+            'source' : sourceParam,
+            'category' : topic !== 'all'? topic : null
+        }
+
+        console.log("body ", body)
+        await getNews(body);
     }
 
-    const resetParam = () => {
-        setSourceParam(null);
-        setTimeIntervalParam(null);
-        setAuthorParam(null);
-        setIsLoading(true);
+    const resetParam = async() => {
+        setSourceParam('');
+        setTimeIntervalParam('');
+        setAuthorParam('');
+
+        const body = {
+            'index' : index ? index : 'news',
+            'publishedDate' : '',
+            'author' : '',
+            'source' : '',
+            'category' : topic !== 'all'? topic : ''
+        }
+        await getNews(body)
     }
 
     const handleSourceChange = (event) => {
@@ -160,6 +192,52 @@ const NewsList = () => {
         return <></>
     }
 
+    const generateFilterSection = () => {
+        return (
+            <div className={styles.filter}>
+                <div className={styles.filterHeader}>
+                    <p>FILTER YOUR RESULT</p>
+                </div>
+
+                <div className={styles.filterTimeRange}>
+                    <p style={{fontWeight:'bold'}}>Time Range</p>
+                    <select value={timeIntervalParam} className={styles.dropdown} onChange={handleTimeRangeChange}>
+                        <option value={null}>Select Time Range...</option>
+                        <option value={setTimeRange('thisWeek')}>This Week ({thisWeek})</option>
+                        <option value={setTimeRange('thisMonth')}>This Month ({thisMonth})</option>
+                        <option value={setTimeRange('thisYear')}>This Year ({thisYear})</option>
+                    </select>
+                </div>
+                <hr/>
+
+                <div>
+                    <p style={{fontWeight:'bold'}}>Author</p>
+                    <select value={authorParam} className={styles.dropdown} onChange={handleAuthorChange}>
+                        <option value={null}>Select Author...</option>
+                        {authors.map(author => (<option value={author.key}>{author.key} ({author.doc_count})</option>))}
+                    </select>
+                </div>
+                <br/>
+                <hr/>
+
+                <div>
+                    <p style={{fontWeight:'bold'}}>Source</p>
+                    <select value={sourceParam} className={styles.dropdown} onChange={handleSourceChange}>
+                        <option value={null}>Select Source....</option>
+                        {sources.map(source => (<option value={source.key}>{source.key} ({source.doc_count})</option>))}
+                    </select>
+                </div>
+
+                <div className={styles.buttonContainer}>
+                    <button className={styles.updateButton} onClick={getNewsWithParam}>UPDATE</button>
+                </div>
+
+                <div className={styles.buttonContainer}>
+                    <button className={styles.resetButton} onClick={resetParam}>RESET ALL</button>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div>
@@ -167,52 +245,23 @@ const NewsList = () => {
             <p style={{color:'rgba(0,0,0,0.5)'}}>Displaying 1 - 10 of {total} results</p>
             <hr/>
             <div className={styles.container}>
-                <div className={styles.news}>
-                    {currentItems.map(news => (generateNewsContent(news)))}
-                </div>
-                <div className={styles.verticalBreakline}></div>
-                <div className={styles.filter}>
-                    <div className={styles.filterHeader}>
-                        <p>FILTER YOUR RESULT</p>
-                    </div>
+                {isMobile ? (
+                    <>
+                        {generateFilterSection()}
+                        <div className={styles.news}>
+                            {currentItems.map(news => (generateNewsContent(news)))}
+                        </div>
+                    </>
+                ) :
+                    <>
+                        <div className={styles.news}>
+                            {currentItems.map(news => (generateNewsContent(news)))}
+                        </div>
+                        <div className={styles.verticalBreakline}></div>
+                        {generateFilterSection()}
+                    </>
+                }
 
-                    <div className={styles.filterTimeRange}>
-                        <p style={{fontWeight:'bold'}}>Time Range</p>
-                        <select value={timeIntervalParam} className={styles.dropdown} onChange={handleTimeRangeChange}>
-                            <option value={null}>Select Time Range...</option>
-                            <option value={setTimeRange('thisWeek')}>This Week ({thisWeek})</option>
-                            <option value={setTimeRange('thisMonth')}>This Month ({thisMonth})</option>
-                            <option value={setTimeRange('thisYear')}>This Year ({thisYear})</option>
-                        </select>
-                    </div>
-                    <hr/>
-
-                    <div>
-                        <p style={{fontWeight:'bold'}}>Author</p>
-                        <select value={authorParam} className={styles.dropdown} onChange={handleAuthorChange}>
-                            <option value={null}>Select Author...</option>
-                            {authors.map(author => (<option value={author.key}>{author.key} ({author.doc_count})</option>))}
-                        </select>
-                    </div>
-                    <br/>
-                    <hr/>
-
-                    <div>
-                        <p style={{fontWeight:'bold'}}>Source</p>
-                        <select value={sourceParam} className={styles.dropdown} onChange={handleSourceChange}>
-                            <option value={null}>Select Source....</option>
-                            {sources.map(source => (<option value={source.key}>{source.key} ({source.doc_count})</option>))}
-                        </select>
-                    </div>
-
-                    <div className={styles.buttonContainer}>
-                        <button className={styles.updateButton} onClick={getNewsWithParam}>UPDATE</button>
-                    </div>
-
-                    <div className={styles.buttonContainer}>
-                        <button className={styles.resetButton} onClick={resetParam}>RESET ALL</button>
-                    </div>
-                </div>
             </div>
             <div className={styles.pageButtonContainer}>
                 {Array.from({ length: totalPages }, (_, index) => (

@@ -124,3 +124,27 @@
     background-color: rgba(0,0,0,0.5);
 }
 
+@media (max-width: 780px){
+    .container{
+        display: block;
+    }
+
+    .filter{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .newsContent{
+        display: block;
+    }
+
+    .image{
+        width: 100%;
+        height: auto;
+    }
+
+    .imageContainer{
+        margin-right: 0;
+    }
+}
+

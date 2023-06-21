@@ -1,0 +1,85 @@
+.container{
+    margin-top: -30px;
+}
+
+.inputContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.inputContainer p {
+    padding:10px;
+}
+
+.content{
+    width: 50%;
+}
+
+.input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.input input{
+    height: 40px;
+    width: 100%;
+}
+
+.header{
+    color: white;
+    background-color: black;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.loginButton{
+    border: none;
+    padding: 10px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.loginButton:hover{
+    background-color: rgba(0,0,0,0.6);
+}
+
+.containerHeader{
+    font-family: "Tiro Devanagari Hindi";
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.link{
+    color: black;
+}
+
+.link:hover{
+    color: rgba(0,0,0,0.7);
+}
+
+.linkContainer{
+    display: flex;
+}
+
+.errorMessage{
+    background-color: red;
+    color: white;
+}
+
+.successMessage{
+    background-color: green;
+    color: white;
+}
+
+.activateAccount{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+@media (max-width: 780px){
+    .content{
+        width: 80%;
+    }
+}
